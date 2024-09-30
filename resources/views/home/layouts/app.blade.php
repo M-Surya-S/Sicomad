@@ -14,14 +14,14 @@
     rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/elegant-icons.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/magnific-popup.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/home/css/style.css') }}" type="text/css">
 </head>
 
 <body>
@@ -37,16 +37,16 @@
     @include('home.layouts.partial.footer')
 
     <!-- Js Plugins -->
-    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('assets/js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('assets/home/js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/home/js/main.js') }}"></script>
 </body>
 
 </html>
