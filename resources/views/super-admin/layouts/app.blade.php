@@ -46,13 +46,13 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        @include('dashboard.layouts.partial.navbar')
+        @include('super-admin.layouts.partial.navbar')
 
         <!-- Main Sidebar Container -->
-        @include('dashboard.layouts.partial.sidebar')
+        @include('super-admin.layouts.partial.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('content-dashboard')
+        @yield('content-superadmin')
 
         <footer class="main-footer">
             <strong>Copyright &copy; 2024 <a href="/dashboard">Sicomad</a>.</strong>

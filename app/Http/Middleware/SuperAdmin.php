@@ -15,7 +15,7 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && $request->user()->role === 'super admin') {
+        if ($request->user() && $request->user()->role === 'superadmin') {
             return $next($request);
         }
 

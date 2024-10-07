@@ -1,6 +1,6 @@
-@extends('dashboard.layouts.app')
+@extends('super-admin.layouts.app')
 
-@section('content-dashboard')
+@section('content-superadmin')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">

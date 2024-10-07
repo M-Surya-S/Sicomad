@@ -9,12 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sicomad</title>
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/dashboard/dist/img/AdminLTELogo.png') }}">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
-    
-    <!-- Bootstrap Icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{ asset('assets/home/css/bootstrap.min.css') }}" type="text/css">

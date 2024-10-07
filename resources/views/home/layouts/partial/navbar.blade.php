@@ -3,11 +3,30 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__option">
         <div class="offcanvas__links">
-            <a href="/login">Sign in</a>
+            @if (auth()->check())
+                @if (auth()->user()->role === 'superadmin')
+                    <a href="{{ route('super-admin') }}">Dashboard</a>
+                @elseif (auth()->user()->role === 'admin')
+                    <a href="{{ route('admin') }}">Dashboard</a>
+                @elseif (auth()->user()->role === 'pengguna')
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                @endif
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            @else
+                <a href="{{ route('login') }}">Sign in</a>
+            @endif
+
         </div>
     </div>
     <div class="offcanvas__nav__option">
-        <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}" alt=""></a>
+        <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}"
+                alt=""></a>
         <a href="#"><img src="{{ asset('assets/home/img/icon/heart.png') }}" alt=""></a>
         <a href="#"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt=""> <span>0</span></a>
         <div class="price">$0.00</div>
@@ -32,7 +51,25 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="/login">Sign in</a>
+                            @if (auth()->check())
+                                @if (auth()->user()->role === 'superadmin')
+                                    <a href="{{ route('super-admin') }}">Dashboard</a>
+                                @elseif (auth()->user()->role === 'admin')
+                                    <a href="{{ route('admin') }}">Dashboard</a>
+                                @elseif (auth()->user()->role === 'pengguna')
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                @endif
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            @else
+                                <a href="{{ route('login') }}">Sign in</a>
+                                <a href="{{ route('register') }}">Sign up</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -67,9 +104,11 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}" alt=""></a>
+                    <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}"
+                            alt=""></a>
                     <a href="#"><img src="{{ asset('assets/home/img/icon/heart.png') }}" alt=""></a>
-                    <a href="#"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt=""> <span>0</span></a>
+                    <a href="#"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt="">
+                        <span>0</span></a>
                     <div class="price">$0.00</div>
                 </div>
             </div>
