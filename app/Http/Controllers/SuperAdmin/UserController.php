@@ -55,7 +55,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $admin = User::findOrFail($id);
+        return view('super-admin.admin.edit-admin', compact('admin'));
     }
 
     /**
@@ -63,7 +64,15 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $admin = User::findOrFail($id);
+        
+        $admin->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin-table')->with('success', 'Update Success');
     }
 
     /**

@@ -24,7 +24,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card">
-                    <form action="{{ route('admin-add.store') }}" method="POST">
+                    <form action="{{ route('admin-store') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">

@@ -31,26 +31,30 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Role</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        @php $nomor = 1; @endphp
+                                        @foreach ($customers as $customer)
+                                            <tr>
+                                                <td>{{ $nomor }}</td>
+                                                <td>{{ $customer->name }}</td>
+                                                <td>{{ $customer->email }}</td>
+                                                <td>{{ $customer->role }}</td>
+                                            </tr>
+                                            @php $nomor++; @endphp
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th>No</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Role</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>

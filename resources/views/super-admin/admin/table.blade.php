@@ -55,7 +55,7 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->role }}</td>
                                                 <td>
-                                                    <a href="{{-- route('admin', $user->id) --}}" class="btn btn-warning"><i class="fas fa-edit fa-sm"></i></a>
+                                                    <a href="{{ route('admin-edit', $user->id) }}" class="btn btn-warning"><i class="fas fa-edit fa-sm"></i></a>
                                                     <form action="{{ route('admin-delete', $user->id) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')

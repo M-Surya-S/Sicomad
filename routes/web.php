@@ -32,7 +32,9 @@ Route::middleware('superadmin')->group(function () {
 
     Route::get('/super-admin-dashboard/admin/table', [UserController::class, 'index'])->name('admin-table');
     Route::get('/super-admin-dashboard/admin/add', [UserController::class, 'create'])->name('admin-add');
-    Route::post('/super-admin-dashboard/admin/add', [UserController::class, 'store'])->name('admin-add.store');
+    Route::post('/super-admin-dashboard/admin/add', [UserController::class, 'store'])->name('admin-store');
+    Route::get('/super-admin-dashboard/admin/edit/{id}', [UserController::class, 'edit'])->name('admin-edit');
+    Route::post('/super-admin-dashboard/admin/edit/{id}', [UserController::class, 'update'])->name('admin-update');
     Route::delete('/super-admin-dashboard/admin/delete/{id}', [UserController::class, 'destroy'])->name('admin-delete');
     
     Route::get('/super-admin-dashboard/customer', [CustomerController::class, 'index'])->name('customer');
