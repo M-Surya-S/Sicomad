@@ -112,6 +112,8 @@
     <script src="{{ asset('assets/dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- bs-custom-file-input -->
     <script src="{{ asset('assets/dashboard/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <!-- formater -->
+    <script src="{{ asset('assets/dashboard/dist/js/format.js') }}"></script>
 
     <script>
         $(function() {

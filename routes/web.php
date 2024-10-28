@@ -47,6 +47,10 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin-dashboard/product/table', [ProductController::class, 'index'])->name('product-table');
     Route::get('/admin-dashboard/product/add', [ProductController::class, 'create'])->name('product-add');
+    Route::post('/admin-dashboard/product/add', [ProductController::class, 'store'])->name('product-store');
+    Route::get('/admin-dashboard/product/edit/{id}', [ProductController::class, 'edit'])->name('product-edit');
+    Route::post('/admin-dashboard/product/edit/{id}', [ProductController::class, 'update'])->name('product-update');
+    Route::delete('/admin-dashboard/product/delete/{id}', [ProductController::class, 'destroy'])->name('product-delete');
     
     Route::get('/admin-dashboard/category/table', [CategoryController::class, 'index'])->name('category-table');
     Route::get('/admin-dashboard/category/add', [CategoryController::class, 'create'])->name('category-add');

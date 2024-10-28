@@ -25,29 +25,54 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>No</th>
+                                            <th>Product Name</th>
+                                            <th>Stock</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        @php $nomor=1; @endphp
+                                        @foreach ($produk as $produk)
+                                            <tr>
+                                                <td>{{ $nomor }}</td>
+                                                <td>{{ $produk->nama }}</td>
+                                                <td>{{ $produk->stok }}</td>
+                                                <td>{{ $produk->harga }}</td>
+                                                <td>
+                                                    <a href="{{ route('product-edit', $produk->id) }}" class="btn btn-warning"><i class="fas fa-edit fa-sm"></i></a>
+                                                    <form action="{{ route('product-delete', $produk->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt fa-sm"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            @php $nomor ++ ; @endphp
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>No</th>
+                                            <th>Product Name</th>
+                                            <th>Stock</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>

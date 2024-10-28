@@ -65,7 +65,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Name</th>
+                                            <th>Category Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
