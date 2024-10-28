@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperAdmin\CustomerController;
 use App\Http\Controllers\SuperAdmin\DashboardController as SuperAdminDashboardController;
@@ -24,9 +25,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 require __DIR__.'/auth.php';
 
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
+Route::get('/about-us', [MainController::class, 'about_us'])->name('about-us');
 
 Route::middleware('superadmin')->group(function () {
     Route::get('/super-admin-dashboard', [SuperAdminDashboardController::class, 'index'])->name('super-admin');

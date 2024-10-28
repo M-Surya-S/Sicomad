@@ -86,10 +86,10 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="./contact.html">About Us</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="{{ Request::is('catalog') ? 'active' : '' }}"><a href="{{ route('catalog') }}">Catalog</a></li>
+                        <li class="{{ Request::is('about-us') ? 'active' : '' }}"><a href="{{ route('about-us') }}">About Us</a></li>
+                        <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="./contact.html">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
