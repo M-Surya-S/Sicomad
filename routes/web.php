@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -46,6 +47,13 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin-dashboard/product/table', [ProductController::class, 'index'])->name('product-table');
     Route::get('/admin-dashboard/product/add', [ProductController::class, 'create'])->name('product-add');
+    
+    Route::get('/admin-dashboard/category/table', [CategoryController::class, 'index'])->name('category-table');
+    Route::get('/admin-dashboard/category/add', [CategoryController::class, 'create'])->name('category-add');
+    Route::post('/admin-dashboard/category/add', [CategoryController::class, 'store'])->name('category-store');
+    Route::get('/admin-dashboard/category/edit/{id}', [CategoryController::class, 'edit'])->name('category-edit');
+    Route::post('/admin-dashboard/category/edit/{id}', [CategoryController::class, 'update'])->name('category-update');
+    Route::delete('/admin-dashboard/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category-delete');
 });
 
 Route::middleware('auth')->group(function () {

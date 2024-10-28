@@ -44,7 +44,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ Route::is('') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin-dashboard/category/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Category
@@ -53,13 +53,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('category-table') }}" class="nav-link">
                                 <i class="nav-icon fas fa-database"></i>
                                 <p>Table</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('category-add') }}" class="nav-link">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p>Add</p>
                             </a>

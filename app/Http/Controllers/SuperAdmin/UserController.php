@@ -39,7 +39,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('admin-table')->with('success', 'Admin successfully added');
+        return redirect()->route('admin-table')->with('success', 'Admin Successfully Added');
     }
 
     /**
@@ -84,6 +84,6 @@ class UserController extends Controller
 
         $admin->delete();
 
-        return redirect()->route('admin-table')->with('success', 'User successfully deleted');
+        return redirect()->route('admin-table')->with('success', 'User Successfully Deleted');
     }
 }

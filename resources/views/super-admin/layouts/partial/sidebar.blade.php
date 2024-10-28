@@ -21,7 +21,7 @@
                 </li>
                 <li class="nav-header">User</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ Request::is('/super-admin-dashboard/admin/*') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('super-admin-dashboard/admin/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>
                             Admin
