@@ -25,12 +25,16 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
+                        {{-- Search Bar --}}
                         <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
+                            <form action="{{ route('catalog') }}" method="GET">
+                                <input type="text" name="search" placeholder="Search..."
+                                    value="{{ request('search') }}">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
+
+                        {{-- Category Column --}}
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
@@ -41,8 +45,17 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    @foreach ($kategori as $kategori)
-                                                        <li><a href="#">{{ $kategori->nama }} ({{ $kategori->produk->count() }})</a></li>
+                                                    <li>
+                                                        <a href="{{ route('catalog') }}">
+                                                            Show All
+                                                        </a>
+                                                    </li>
+                                                    @foreach ($kategori as $item)
+                                                        <li>
+                                                            <a href="{{ route('catalog', ['kategori' => $item->id]) }}">
+                                                                {{ $item->nama }} ({{ $item->produk_count }})
+                                                            </a>
+                                                        </li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -53,43 +66,83 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- Showing Item Results --}}
                 <div class="col-lg-9">
                     <div class="shop__product__option">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing {{ $produk->firstItem() }}–{{ $produk->lastItem() }} of {{ $produk->total() }} results</p>
+                                    <p>Showing {{ $produk->firstItem() }}–{{ $produk->lastItem() }} of
+                                        {{ $produk->total() }} results</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                             </div>
                         </div>
                     </div>
+
+                    {{-- Produk Catalog --}}
                     <div class="row">
-                        @foreach ($produk as $produk)
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="{{ Storage::url(json_decode($produk->gambar)[0]) }}"></div>
-                                    <div class="product__item__text">
-                                        <h6>{{ $produk->nama }}</h6>
-                                        <a href="#" class="add-cart">+ Add To Cart</a>
-                                        <h5>{{ $produk->harga }}</h5>
+                        @if ($produk->isEmpty())
+                            <div class="col-lg-12">
+                                <p class="text-center">Produk tidak ditemukan</p>
+                            </div>
+                        @else
+                            @foreach ($produk as $p)
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg"
+                                            data-setbg="{{ Storage::url(json_decode($p->gambar)[0]) }}"></div>
+                                        <div class="product__item__text">
+                                            <h6>{{ $p->nama }}</h6>
+                                            <a href="#" class="add-cart">+ Add To Cart</a>
+                                            <h5>{{ $p->harga }}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </div>
+
+                    {{-- Pagination --}}
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="product__pagination">
-                                <a class="active" href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <span>...</span>
-                                <a href="#">21</a>
-                            </div>
+                            @if ($produk->lastPage() > 1)
+                                <div class="product__pagination">
+                                    {{-- Tautan ke halaman pertama --}}
+                                    <a href="{{ $produk->url(1) }}" class="{{ $produk->currentPage() == 1 ? 'active' : '' }}">1</a>
+                    
+                                    {{-- Tampilkan "..." jika halaman lebih dari 3 --}}
+                                    @if ($produk->currentPage() > 3)
+                                        <span>...</span>
+                                    @endif
+                    
+                                    {{-- Tautan untuk halaman sebelum dan sesudah halaman saat ini --}}
+                                    @foreach (range(max(2, $produk->currentPage() - 1), min($produk->lastPage() - 1, $produk->currentPage() + 1)) as $page)
+                                        {{-- Pastikan tidak ada duplikasi halaman 1 atau halaman terakhir --}}
+                                        @if ($page != 1 && $page != $produk->lastPage())
+                                            <a href="{{ $produk->url($page) }}" class="{{ $produk->currentPage() == $page ? 'active' : '' }}">
+                                                {{ $page }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                    
+                                    {{-- Tampilkan "..." sebelum halaman terakhir jika belum mencapai halaman terakhir --}}
+                                    @if ($produk->currentPage() < $produk->lastPage() - 2)
+                                        <span>...</span>
+                                    @endif
+                    
+                                    {{-- Tautan ke halaman terakhir --}}
+                                    @if ($produk->lastPage() > 1)
+                                        <a href="{{ $produk->url($produk->lastPage()) }}" class="{{ $produk->currentPage() == $produk->lastPage() ? 'active' : '' }}">
+                                            {{ $produk->lastPage() }}
+                                        </a>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
