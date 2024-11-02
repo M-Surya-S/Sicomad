@@ -32,7 +32,7 @@ class MainController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        return view('home.shop', compact('produk', 'kategori', 'kategoriId', 'search'));
+        return view('home.catalog', compact('produk', 'kategori', 'kategoriId', 'search'));
     }
 
 
