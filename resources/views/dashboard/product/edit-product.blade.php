@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="images">Product Images</label>
-                                <input type="file" class="form-control" id="images" name="gambar[]" multiple>
+                                <input type="file" class="form-control" id="images" name="gambar">
                             </div>
                         </div>
                         <div class="card-footer">

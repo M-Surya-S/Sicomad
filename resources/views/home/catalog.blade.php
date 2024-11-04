@@ -93,7 +93,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg"
-                                            data-setbg="{{ Storage::url(json_decode($p->gambar)[0]) }}"></div>
+                                            data-setbg="{{ Storage::url($p->gambar) }}"></div>
                                         <div class="product__item__text">
                                             <h6>{{ $p->nama }}</h6>
                                             <a href="#" class="add-cart">+ Add To Cart</a>

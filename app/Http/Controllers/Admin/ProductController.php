@@ -33,14 +33,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $uploadedFiles = $request->file('gambar');
-        $filePaths = [];
-        if ($uploadedFiles) {
-            foreach ($uploadedFiles as $file) {
-                $path = $file->store('public/images/product');
-                $filePaths[] = $path;
-            }
-        }
+        $path = $request->file('gambar')->store('public/images/product');
+        $filePaths = $path;
 
         Produk::create([
             'nama' => $request->nama,
@@ -77,7 +71,7 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $produk = Produk::findOrFail($id);
-        $gambar = json_decode($produk->gambar);
+        $gambar = $produk->gambar;
 
         // Update data produk
         $produk->update([
@@ -91,20 +85,15 @@ class ProductController extends Controller
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama (opsional, tergantung kebutuhan)
             if (is_array($produk->gambar)) {
-                foreach ($gambar as $oldImage) {
-                    Storage::delete($oldImage);
-                }
+                Storage::delete($gambar);
             }
 
             // Simpan gambar baru
-            $filePaths = [];
-            foreach ($request->file('gambar') as $file) {
-                $path = $file->store('public/images/product');
-                $filePaths[] = $path;
-            }
+            $path = $request->file('gambar')->store('public/images/product');
+            $filePaths = $path;
 
             // Update kolom gambar dengan gambar baru
-            $produk->gambar = json_encode($filePaths);
+            $produk->gambar = $filePaths;
             $produk->save();
         }
 
@@ -116,6 +105,12 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+
+        Storage::delete($produk->gambar);
+
+        $produk->delete();
+
+        return redirect()->route('product-table');
     }
 }

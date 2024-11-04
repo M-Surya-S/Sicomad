@@ -5,10 +5,13 @@
         <div class="offcanvas__links">
             @if (auth()->check())
                 @if (auth()->user()->role === 'superadmin')
+                    <a>Halo, {{ auth()->user()->name }}</a>
                     <a href="{{ route('super-admin') }}">Dashboard</a>
                 @elseif (auth()->user()->role === 'admin')
+                    <a>Halo, {{ auth()->user()->name }}</a>
                     <a href="{{ route('admin') }}">Dashboard</a>
                 @elseif (auth()->user()->role === 'pengguna')
+                    <a>Halo, {{ auth()->user()->name }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -53,10 +56,13 @@
                         <div class="header__top__links">
                             @if (auth()->check())
                                 @if (auth()->user()->role === 'superadmin')
+                                    <a>Halo, {{ auth()->user()->name }}</a>
                                     <a href="{{ route('super-admin') }}">Dashboard</a>
                                 @elseif (auth()->user()->role === 'admin')
+                                    <a>Halo, {{ auth()->user()->name }}</a>
                                     <a href="{{ route('admin') }}">Dashboard</a>
                                 @elseif (auth()->user()->role === 'pengguna')
+                                    <a>Halo, {{ auth()->user()->name }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

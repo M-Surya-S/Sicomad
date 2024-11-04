@@ -19,8 +19,8 @@
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">User Profile</span>
                 <div class="dropdown-divider"></div>
-                <a href="{{ route('profile.edit') }}" class="dropdown-item">
-                    <i class="bi bi-gear mr-2"></i> Profile
+                <a href="{{ route('home') }}" class="dropdown-item">
+                    <i class="bi bi-house mr-2"></i> Home User
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}" class="dropdown-item"

@@ -21,7 +21,7 @@
                 </li>
                 <li class="nav-header">Catalog</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ Request::is('admin-dashboard/product/*') ? 'active' : '' }}">
+                    <a href="{{ route('product-table') }}" class="nav-link {{ Request::is('admin-dashboard/product/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
                         <p>
                             Product
@@ -44,7 +44,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ Request::is('admin-dashboard/category/*') ? 'active' : '' }}">
+                    <a href="{{ route('category-table') }}" class="nav-link {{ Request::is('admin-dashboard/category/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Category
