@@ -31,10 +31,6 @@
                                     value="{{ $produk->nama }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea type="text" class="form-control" id="description" name="deskripsi" required rows="3">{{ $produk->deskripsi }}</textarea>
-                            </div>
-                            <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="form-control" id="category" name="kategori_id" required>
                                     <option value="" disabled>Select Category</option>

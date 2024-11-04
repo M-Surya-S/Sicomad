@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
             $table->string('nama');
             $table->json('gambar');
-            $table->string('deskripsi');
             $table->string('stok');
             $table->string('harga');
             $table->timestamps();

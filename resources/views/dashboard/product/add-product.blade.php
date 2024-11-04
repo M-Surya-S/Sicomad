@@ -30,10 +30,6 @@
                                 <input type="text" class="form-control" id="name" name="nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea type="text" class="form-control" id="description" name="deskripsi" required rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="form-control" id="category" name="kategori_id" required>
                                     <option value="" disabled selected>Select Category</option>

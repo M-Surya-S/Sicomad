@@ -44,7 +44,6 @@ class ProductController extends Controller
 
         Produk::create([
             'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
             'stok' => $request->stok,
             'harga' => $request->harga,
@@ -83,7 +82,6 @@ class ProductController extends Controller
         // Update data produk
         $produk->update([
             'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
             'stok' => $request->stok,
             'harga' => $request->harga,
