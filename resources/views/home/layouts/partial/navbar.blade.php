@@ -12,10 +12,6 @@
                     <a href="{{ route('admin') }}">Dashboard</a>
                 @elseif (auth()->user()->role === 'pengguna')
                     <a>Halo, {{ auth()->user()->name }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 @endif
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
@@ -31,8 +27,7 @@
         <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}"
                 alt=""></a>
         <a href="#"><img src="{{ asset('assets/home/img/icon/heart.png') }}" alt=""></a>
-        <a href="#"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt=""> <span>0</span></a>
-        <div class="price">$0.00</div>
+        <a href="{{ route('cart') }}"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__text">
@@ -63,10 +58,6 @@
                                     <a href="{{ route('admin') }}">Dashboard</a>
                                 @elseif (auth()->user()->role === 'pengguna')
                                     <a>Halo, {{ auth()->user()->name }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                 @endif
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -101,10 +92,11 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}"
-                            alt="search"></a>
-                    <a href="#"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt="cart">
-                        <span>0</span></a>
+                    <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}" alt="search"></a>
+                    @auth
+                        <a href="#"><img src="{{ asset('assets/home/img/icon/order.png') }}" alt="order"></a>
+                        <a href="{{ route('cart') }}"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt="cart"></a>
+                    @endauth
                 </div>
             </div>
         </div>

@@ -3,7 +3,9 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperAdmin\CustomerController;
 use App\Http\Controllers\SuperAdmin\DashboardController as SuperAdminDashboardController;
@@ -27,6 +29,7 @@ require __DIR__.'/auth.php';
 Route::middleware('superadmin')->group(function () {
     Route::get('/super-admin-dashboard', [SuperAdminDashboardController::class, 'index'])->name('super-admin');
 
+    // Admin Account
     Route::get('/super-admin-dashboard/admin/table', [UserController::class, 'index'])->name('admin-table');
     Route::get('/super-admin-dashboard/admin/add', [UserController::class, 'create'])->name('admin-add');
     Route::post('/super-admin-dashboard/admin/add', [UserController::class, 'store'])->name('admin-store');
@@ -34,6 +37,7 @@ Route::middleware('superadmin')->group(function () {
     Route::post('/super-admin-dashboard/admin/edit/{id}', [UserController::class, 'update'])->name('admin-update');
     Route::delete('/super-admin-dashboard/admin/delete/{id}', [UserController::class, 'destroy'])->name('admin-delete');
     
+    // Customer Account
     Route::get('/super-admin-dashboard/customer', [CustomerController::class, 'index'])->name('customer');
 });
 
@@ -41,6 +45,7 @@ Route::middleware('superadmin')->group(function () {
 Route::middleware('admin')->group(function () {
     Route::get('/admin-dashboard', [DashboardController::class, 'index'])->name('admin');
 
+    // Product
     Route::get('/admin-dashboard/product/table', [ProductController::class, 'index'])->name('product-table');
     Route::get('/admin-dashboard/product/add', [ProductController::class, 'create'])->name('product-add');
     Route::post('/admin-dashboard/product/add', [ProductController::class, 'store'])->name('product-store');
@@ -48,6 +53,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin-dashboard/product/edit/{id}', [ProductController::class, 'update'])->name('product-update');
     Route::delete('/admin-dashboard/product/delete/{id}', [ProductController::class, 'destroy'])->name('product-delete');
     
+    // Category
     Route::get('/admin-dashboard/category/table', [CategoryController::class, 'index'])->name('category-table');
     Route::get('/admin-dashboard/category/add', [CategoryController::class, 'create'])->name('category-add');
     Route::post('/admin-dashboard/category/add', [CategoryController::class, 'store'])->name('category-store');
@@ -56,15 +62,19 @@ Route::middleware('admin')->group(function () {
     Route::delete('/admin-dashboard/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category-delete');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
+// Home
 Route::get('/', [MainController::class, 'index'])->name('home');
+
+// Catalog
 Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
+
+// Cart
+Route::get('/cart', [KeranjangController::class, 'index'])->name('cart');
+Route::get('/cart/{idProduk}', [KeranjangController::class, 'addToCart'])->name('cart-add');
+Route::delete('/cart/{id}', [KeranjangController::class, 'destroy'])->name('cart-delete');
+
+// Checkout
+Route::get('/checkout', [PesananController::class, 'create'])->name('checkout');
+
+// About Us
 Route::get('/about-us', [MainController::class, 'about_us'])->name('about-us');
-Route::get('/test-cart', function(){
-    return view('home.cart');
-});

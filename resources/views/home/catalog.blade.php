@@ -96,7 +96,12 @@
                                             data-setbg="{{ Storage::url($p->gambar) }}"></div>
                                         <div class="product__item__text">
                                             <h6>{{ $p->nama }}</h6>
-                                            <a href="#" class="add-cart">+ Add To Cart</a>
+                                            @auth
+                                                <a href="{{ route('cart-add', $p->id) }}" class="add-cart">+ Add To Cart</a>
+                                            @endauth
+                                            @guest
+                                                <a href="{{ route('login') }}" class="add-cart">Login To Add To Cart</a>
+                                            @endguest
                                             <h5>{{ $p->harga }}</h5>
                                         </div>
                                     </div>
