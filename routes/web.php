@@ -71,7 +71,7 @@ Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
 // Cart
 Route::get('/cart', [KeranjangController::class, 'index'])->name('cart');
 Route::get('/cart/{idProduk}', [KeranjangController::class, 'addToCart'])->name('cart-add');
-Route::delete('/cart/{id}', [KeranjangController::class, 'destroy'])->name('cart-delete');
+Route::post('/cart/update', [KeranjangController::class, 'updateCart'])->name('cart-update');
 
 // Checkout
 Route::get('/checkout', [PesananController::class, 'create'])->name('checkout');

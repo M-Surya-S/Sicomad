@@ -1,6 +1,8 @@
 @extends('home.layouts.app')
 
 @section('content')
+<form action="{{ route('cart-update') }}" method="POST">
+    @csrf
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
@@ -35,19 +37,15 @@
                                             <td class="quantity__item">
                                                 <div class="quantity">
                                                     <div class="pro-qty-2">
-                                                        <input type="text" value="{{ $item->quantity }}">
+                                                        <input type="text" name="quantities[{{ $item->id }}]" value="{{ $item->quantity }}">
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="cart__price">Rp {{ number_format($item->total, 0, ',', '.') }}</td>
                                             <td class="cart__close">
-                                                <form action="{{ route('cart-delete', $item->id) }}" method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" style="background: none; border: none; cursor: pointer;">
-                                                        <i class="fa fa-close"></i>
-                                                    </button>
-                                                </form>
+                                                <button type="submit" name="destroy" value="{{ $item->id }}" style="background: none; border: none; cursor: pointer;">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -58,9 +56,11 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn">
-                                <a href="{{ route('catalog') }}">Continue Shopping</a>
-                            </div>
+                            @if ($item_keranjang != $item_keranjang->isEmpty()) 
+                                <div class="continue__btn">
+                                    <a href="{{ route('catalog') }}">Continue Shopping</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -70,10 +70,15 @@
                         <ul>
                             <li>Total <span>Rp {{ number_format($total_harga, 0, ',', '.') }}</span></li>
                         </ul>
-                        <a href="{{ route('checkout') }}" class="primary-btn">Proceed to checkout</a>
+                        @if ($item_keranjang != $item_keranjang->isEmpty()) 
+                            <a href="" class="primary-btn" onclick="this.closest('form').submit();">Proceed to checkout</a>
+                        @else
+                            <a href="{{ route('catalog') }}" class="primary-btn">Continue Shopping</a>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</form>
 @endsection
