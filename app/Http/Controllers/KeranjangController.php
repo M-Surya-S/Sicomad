@@ -85,13 +85,4 @@ class KeranjangController extends Controller
             return redirect()->route('checkout');
         }
     }
-
-
-    public function destroy(string $id)
-    {
-        $item_keranjang = ItemKeranjang::findOrFail($id);
-        $item_keranjang->delete();
-
-        return redirect()->route('cart')->with('success', 'Item Successfully Deleted from Your Cart');
-    }
 }
