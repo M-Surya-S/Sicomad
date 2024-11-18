@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('total');
             $table->string('status');
+            $table->string('nama_lengkap');
+            $table->string('alamat');
+            $table->string('nomor_hp');
+            $table->string('catatan_pesanan')->nullable();
             $table->timestamps();
         });
     }

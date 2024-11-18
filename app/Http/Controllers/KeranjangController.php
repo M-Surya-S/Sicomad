@@ -67,7 +67,7 @@ class KeranjangController extends Controller
 
     public function updateCart(Request $request)
     {
-        // delete item dari keranjang
+        // Delete item dari keranjang
         if ($request->has('destroy')) {
             $itemId = $request->input('destroy');
             ItemKeranjang::where('id', $itemId)->delete();
@@ -75,14 +75,24 @@ class KeranjangController extends Controller
             return redirect()->route('cart')->with('success', 'Item Successfully Deleted from Your Cart');
         }
 
-        // update quantities only
-        elseif ($request->has('quantities')) {
-            // Memperbarui quantity
+        // Update quantities dan total
+        if ($request->has('quantities')) {
             $quantities = $request->input('quantities');
             foreach ($quantities as $itemId => $quantity) {
-                ItemKeranjang::where('id', $itemId)->update(['quantity' => $quantity]);
+                $item = ItemKeranjang::find($itemId);
+                if ($item) {
+                    $hargaProduk = $item->harga;
+                    $totalBaru = $hargaProduk * $quantity;
+
+                    // Update quantity dan total
+                    $item->update([
+                        'quantity' => $quantity,
+                        'total' => $totalBaru,
+                    ]);
+                }
             }
-            return redirect()->route('checkout');
         }
+
+        return redirect()->route('checkout');
     }
 }

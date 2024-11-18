@@ -71,7 +71,7 @@
                             <li>Total <span>Rp {{ number_format($total_harga, 0, ',', '.') }}</span></li>
                         </ul>
                         @if ($item_keranjang != $item_keranjang->isEmpty()) 
-                            <a href="" class="primary-btn" onclick="this.closest('form').submit();">Proceed to checkout</a>
+                            <a href="#" class="primary-btn" onclick="this.closest('form').submit();">Proceed to checkout</a>
                         @else
                             <a href="{{ route('catalog') }}" class="primary-btn">Continue Shopping</a>
                         @endif
