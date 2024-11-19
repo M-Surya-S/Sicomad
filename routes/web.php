@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PesananController as AdminPesananController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MainController;
@@ -60,6 +61,9 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin-dashboard/category/edit/{id}', [CategoryController::class, 'edit'])->name('category-edit');
     Route::post('/admin-dashboard/category/edit/{id}', [CategoryController::class, 'update'])->name('category-update');
     Route::delete('/admin-dashboard/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category-delete');
+
+    // New Order
+    Route::get('/admin-dashboard/new-order/table', [AdminPesananController::class, 'index'])->name('new-order-table');
 });
 
 // Home

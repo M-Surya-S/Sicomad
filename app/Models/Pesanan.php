@@ -19,6 +19,6 @@ class Pesanan extends Model
 
     public function item_pesanan()
     {
-        return $this->hasMany(ItemPesanan::class);
+        return $this->hasMany(ItemPesanan::class, 'pesanan_id', 'id');
     }
 }
