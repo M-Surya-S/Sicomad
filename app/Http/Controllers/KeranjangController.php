@@ -8,7 +8,7 @@ use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class KeranjangController extends Controller
+class  KeranjangController extends Controller
 {
     public function index()
     {

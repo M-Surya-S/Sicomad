@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sicomad</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/dashboard/dist/img/AdminLTELogo.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/logo/Logo-Only.png') }}">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
