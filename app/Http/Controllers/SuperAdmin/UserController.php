@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Keranjang;
 use App\Models\User;
 use Illuminate\Cache\RedisTagSet;
 use Illuminate\Http\Request;
@@ -32,12 +33,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'role' => 'admin',
             'password' => Hash::make($request->password),
         ]);
+
+        Keranjang::firstOrCreate(['user_id' => $user->id]);
 
         return redirect()->route('admin-table')->with('success', 'Admin Successfully Added');
     }

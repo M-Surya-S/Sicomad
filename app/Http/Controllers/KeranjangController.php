@@ -53,7 +53,7 @@ class  KeranjangController extends Controller
             ]);
         }
 
-        return redirect()->route('catalog')->with('success', 'Product Successfully Added to Your Cart');
+        return redirect()->route('cart')->with('success', 'Product Successfully Added to Your Cart');
     }
 
     private function convertCurrency($value)

@@ -83,3 +83,6 @@ Route::post('/checkout/order', [PesananController::class, 'makeOrder'])->name('m
 
 // About Us
 Route::get('/about-us', [MainController::class, 'about_us'])->name('about-us');
+
+// Contacts
+Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');

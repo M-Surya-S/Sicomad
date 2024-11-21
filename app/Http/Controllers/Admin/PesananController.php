@@ -12,6 +12,6 @@ class PesananController extends Controller
     public function index()
     {
         $pesanan = Pesanan::with('item_pesanan')->get();
-        return view('dashboard.pesanan.table', compact('pesanan'));
+        return view('dashboard.order.table', compact('pesanan'));
     }
 }

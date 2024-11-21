@@ -23,41 +23,32 @@
     <section class="about spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <div class="about__pic">
-                        <img src="{{ asset('assets/home/img/about/about-us.jpg') }}" alt="">
+                        <img src="{{ asset('assets/home/img/about/testimonial-pic.jpg') }}" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-5">
                     <div class="about__item">
-                        <h4>Who We Are ?</h4>
-                        <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                            Let’s take Google as an example.</p>
+                        <h4>Who We Are?</h4>
+                        <p>We are a dedicated provider of premium curtains and home accessories, committed to delivering elegance and functionality to every space.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
-                        <h4>Who We Do ?</h4>
-                        <p>In this digital generation where information can be easily obtained within seconds, business
-                            cards still have retained their importance.</p>
+                        <h4>What We Do?</h4>
+                        <p>We design and offer a curated selection of high-quality curtains, blinds, and accessories to transform your windows into stylish focal points.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
-                        <h4>Why Choose Us</h4>
-                        <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                            sits, but for older or infirm people.</p>
+                        <h4>Why Choose Us?</h4>
+                        <p>Our products combine exceptional quality, innovative designs, and tailored solutions to perfectly fit your home’s unique style and needs.</p>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </section>
     <!-- About Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial">
+    {{-- <section class="testimonial">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 p-0">
@@ -66,15 +57,6 @@
                         <p>“Going out after work? Take your butane curling iron with you to the office, heat it up,
                             style your hair before you leave the office and you won’t have to make a trip back home.”
                         </p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="{{ asset('assets/home/img/about/testimonial-author.jpg') }}" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Augusta Schultz</h5>
-                                <p>Fashion Design</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 p-0">
@@ -82,7 +64,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Testimonial Section End -->
 
     <!-- Counter Section Begin -->

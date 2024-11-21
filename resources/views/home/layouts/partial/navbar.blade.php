@@ -86,7 +86,7 @@
                         <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
                         <li class="{{ Request::is('catalog') ? 'active' : '' }}"><a href="{{ route('catalog') }}">Catalog</a></li>
                         <li class="{{ Request::is('about-us') ? 'active' : '' }}"><a href="{{ route('about-us') }}">About Us</a></li>
-                        <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="./contact.html">Contacts</a></li>
+                        <li class="{{ Request::is('contacts') ? 'active' : '' }}"><a href="{{ route('contacts') }}">Contacts</a></li>
                     </ul>
                 </nav>
             </div>

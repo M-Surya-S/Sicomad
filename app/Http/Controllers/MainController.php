@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\Keranjang;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        $new_arrivals = Produk::limit(8)->get();
+        return view('home.index', compact('new_arrivals'));
     }
 
     public function catalog(Request $request)
@@ -39,5 +42,10 @@ class MainController extends Controller
     public function about_us()
     {
         return view('home.about');
+    }
+
+    public function contacts()
+    {
+        return view('home.contact');
     }
 }
