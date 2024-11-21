@@ -17,7 +17,7 @@
                         <ul>
                             <li>
                                 <h4>Samarinda</h4>
-                                <p>195 E Parker Square Dr, Parker, CO 801 <br />+43 982-314-0958</p>
+                                <p>Jl. Moh. Said No.97, Lok Bahu, Kec. Sungai Kunjang <br />+62 821-5826-5588</p>
                             </li>
                         </ul>
                     </div>
@@ -27,13 +27,13 @@
                         <form action="#">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Whatsapp Number">
+                                    <input type="text" placeholder="Whatsapp Number" name="wa_number" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
+                                    <textarea placeholder="Message" name="message" required></textarea>
                                     <button type="submit" class="site-btn">Send Message</button>
                                 </div>
                             </div>
