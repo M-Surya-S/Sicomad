@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ItemPesanan;
 use App\Models\Kategori;
 use App\Models\Keranjang;
+use App\Models\Pesanan;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\CssSelector\Node\FunctionNode;
 
 class MainController extends Controller
 {
@@ -36,6 +39,18 @@ class MainController extends Controller
             ->withQueryString();
 
         return view('home.catalog', compact('produk', 'kategori', 'kategoriId', 'search'));
+    }
+
+    public function myOrder()
+    {
+        // Cari pesanan berdasarkan user_id yang sedang login
+        $user = Auth::user();
+        $pesanan = Pesanan::where('user_id', $user->id)->get();
+
+        // Cari semua item pesanan yang terkait dengan pesanan pengguna
+        $item_pesanan = ItemPesanan::whereIn('pesanan_id', $pesanan->pluck('id'))->get();
+
+        return view('home.order', compact('item_pesanan'));
     }
 
 

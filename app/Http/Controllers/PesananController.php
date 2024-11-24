@@ -31,15 +31,19 @@ class PesananController extends Controller
         // Gabungkan alamat lengkap
         $alamatLengkap = $request->alamat . ', ' . $request->kode_pos . ', ' . $request->kota . ', ' . $request->provinsi . ', ' . $request->negara;
 
+        // File Handle
+        $filepath = $request->file('bukti')->store('public/images/bukti');
+
         // Simpan data order ke database
         $pesanan = Pesanan::create([
             'user_id' => $user->id,
             'nama_lengkap' => $request->nama_lengkap,
             'alamat' => $alamatLengkap,
             'nomor_hp' => $request->nomor_hp,
+            'bukti' => $filepath,
             'catatan_pesanan' => $request->catatan_pesanan,
             'total' => $items->sum('total'),
-            'status' => 'pending',
+            'status' => 'Diproses',
         ]);
 
         // Simpan detail item pesanan

@@ -4,7 +4,7 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="{{ route('make-order') }}" method="POST">
+                <form action="{{ route('make-order') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
@@ -45,6 +45,15 @@
                                 <p>Nomor Handphone<span>*</span></p>
                                 <input type="text" name="nomor_hp" required>
                             </div>
+                            <div class="checkout__input">
+                                <p>Bukti Pembayaran<span>*</span></p>
+                                <div class="custom-file-upload">
+                                    <input type="file" name="bukti" id="bukti" required>
+                                    <label for="bukti">Upload Bukti Pembayaran</label>
+                                </div>
+                                <p id="upload-notification" style="display: none; color: green; font-size: 12px; margin-top: 5px;">1 File Has Been Successfully Uploaded</p>
+                            </div>
+                            
                             <div class="checkout__input">
                                 <p>Catatan Pesanan</p>
                                 <input type="text" name="catatan_pesanan"

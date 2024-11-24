@@ -94,7 +94,7 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{ asset('assets/home/img/icon/search.png') }}" alt="search"></a>
                     @auth
-                        <a href="#"><img src="{{ asset('assets/home/img/icon/order.png') }}" alt="order"></a>
+                        <a href="{{ route('my-order') }}"><img src="{{ asset('assets/home/img/icon/order.png') }}" alt="order"></a>
                         <a href="{{ route('cart') }}"><img src="{{ asset('assets/home/img/icon/cart.png') }}" alt="cart"></a>
                     @endauth
                 </div>

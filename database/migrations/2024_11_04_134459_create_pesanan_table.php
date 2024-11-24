@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('alamat');
             $table->string('nomor_hp');
+            $table->string('bukti');
             $table->string('catatan_pesanan')->nullable();
             $table->timestamps();
         });

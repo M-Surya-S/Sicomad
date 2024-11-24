@@ -81,6 +81,10 @@ Route::post('/cart/update', [KeranjangController::class, 'updateCart'])->name('c
 Route::get('/checkout', [PesananController::class, 'index'])->name('checkout');
 Route::post('/checkout/order', [PesananController::class, 'makeOrder'])->name('make-order');
 
+// Order History
+Route::get('/my-order', [MainController::class, 'myOrder'])->name('my-order');
+Route::get('/my-order/{idProduk}', [KeranjangController::class, 'addToCart'])->name('cart-add-again');
+
 // About Us
 Route::get('/about-us', [MainController::class, 'about_us'])->name('about-us');
 

@@ -51,7 +51,6 @@
                                     @endforeach
                                 @endif
                             </tbody>
-                            
                         </table>
                     </div>
                     <div class="row">
