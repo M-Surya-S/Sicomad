@@ -68,16 +68,9 @@
                 </li>
                 <li class="nav-header">Transaction</li>
                 <li class="nav-item">
-                    <a href="{{ route('new-order-table') }}" class="nav-link {{ Request::is('admin-dashboard/new-order/*') ? 'active' : '' }}">
+                    <a href="{{ route('orders-table') }}" class="nav-link {{ Request::is('admin-dashboard/orders/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-receipt"></i>
-                        <p>New Order</p>
-                    </a>
-                </li>
-                <li class="nav-header">Settings</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link {{ Route::is('') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-info"></i>
-                        <p>About Store</p>
+                        <p>Orders</p>
                     </a>
                 </li>
             </ul>

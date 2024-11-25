@@ -63,7 +63,8 @@ Route::middleware('admin')->group(function () {
     Route::delete('/admin-dashboard/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category-delete');
 
     // New Order
-    Route::get('/admin-dashboard/new-order/table', [AdminPesananController::class, 'index'])->name('new-order-table');
+    Route::get('/admin-dashboard/orders/table', [AdminPesananController::class, 'index'])->name('orders-table');
+    Route::post('/admin-dashboard/orders/update-status/{id}', [AdminPesananController::class, 'updateStatus'])->name('update-orders-status');
 });
 
 // Home
