@@ -48,7 +48,9 @@ class MainController extends Controller
         $pesanan = Pesanan::where('user_id', $user->id)->get();
 
         // Cari semua item pesanan yang terkait dengan pesanan pengguna
-        $item_pesanan = ItemPesanan::whereIn('pesanan_id', $pesanan->pluck('id'))->get();
+        $item_pesanan = ItemPesanan::whereIn('pesanan_id', $pesanan->pluck('id'))
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('home.order', compact('item_pesanan'));
     }

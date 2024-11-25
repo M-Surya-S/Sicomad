@@ -11,7 +11,10 @@ class PesananController extends Controller
 {
     public function index()
     {
-        $pesanan = Pesanan::with('item_pesanan')->get();
+        $pesanan = Pesanan::with('item_pesanan')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('dashboard.order.table', compact('pesanan'));
     }
 
@@ -19,8 +22,16 @@ class PesananController extends Controller
     {
         $order = Pesanan::findOrFail($id);
         $order->status = $request->status;
-        $order->save(); 
+        $order->save();
 
         return redirect()->back()->with('success', 'Order status updated successfully.');
+    }
+
+    public function filter()
+    {
+        $pesanan = Pesanan::with('item_pesanan')->where('status', "Diproses")
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return view('dashboard.order.table', compact('pesanan'));
     }
 }

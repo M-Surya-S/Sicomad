@@ -7,12 +7,10 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PesananController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperAdmin\CustomerController;
 use App\Http\Controllers\SuperAdmin\DashboardController as SuperAdminDashboardController;
 use App\Http\Controllers\SuperAdmin\UserController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,8 +60,9 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin-dashboard/category/edit/{id}', [CategoryController::class, 'update'])->name('category-update');
     Route::delete('/admin-dashboard/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category-delete');
 
-    // New Order
+    // Orders
     Route::get('/admin-dashboard/orders/table', [AdminPesananController::class, 'index'])->name('orders-table');
+    Route::get('/admin-dashboard/orders/table/new', [AdminPesananController::class, 'filter'])->name('new-order');
     Route::post('/admin-dashboard/orders/update-status/{id}', [AdminPesananController::class, 'updateStatus'])->name('update-orders-status');
 });
 

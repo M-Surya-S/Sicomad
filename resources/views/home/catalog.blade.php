@@ -90,22 +90,25 @@
                             </div>
                         @else
                             @foreach ($produk as $p)
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg"
-                                            data-setbg="{{ Storage::url($p->gambar) }}"></div>
-                                        <div class="product__item__text">
-                                            <h6>{{ $p->nama }}</h6>
-                                            @auth
-                                                <a href="{{ route('cart-add', $p->id) }}" class="add-cart">+ Add To Cart</a>
-                                            @endauth
-                                            @guest
-                                                <a href="{{ route('login') }}" class="add-cart">Login To Add To Cart</a>
-                                            @endguest
-                                            <h5>{{ $p->harga }}</h5>
+                                @if ($p->stok > 0) 
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <div class="product__item">
+                                            <div class="product__item__pic set-bg"
+                                                data-setbg="{{ Storage::url($p->gambar) }}"></div>
+                                            <div class="product__item__text">
+                                                <h6>{{ $p->nama }}</h6>
+                                                @auth
+                                                    <a href="{{ route('cart-add', $p->id) }}" class="add-cart">+ Add To Cart</a>
+                                                @endauth
+                                                @guest
+                                                    <a href="{{ route('login') }}" class="add-cart">Login To Add To Cart</a>
+                                                @endguest
+                                                <h5>{{ $p->harga }}</h5>
+                                                <p>Stok : {{ $p->stok }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         @endif
                     </div>

@@ -46,7 +46,7 @@ class PesananController extends Controller
             'status' => 'Diproses',
         ]);
 
-        // Simpan detail item pesanan
+        // Simpan detail item pesanan dan kurangi stok produk
         foreach ($items as $item) {
             $harga = $this->convertCurrency($item->produk->harga);
 
@@ -57,6 +57,11 @@ class PesananController extends Controller
                 'harga' => $harga,
                 'total' => $item->total,
             ]);
+
+            // Kurangi stok produk
+            $produk = $item->produk;
+            $produk->stok -= $item->quantity;
+            $produk->save();
         }
 
         // Hapus item dari keranjang setelah checkout
@@ -64,6 +69,7 @@ class PesananController extends Controller
 
         return redirect()->route('cart')->with('success', 'Your order has been placed successfully.');
     }
+
 
     private function convertCurrency($value)
     {

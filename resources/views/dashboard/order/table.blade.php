@@ -101,7 +101,7 @@
     <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form id="updateStatusForm" action="{{ route('update-orders-status', $p->id) }}" method="POST">
+                <form id="updateStatusForm" action="" method="POST">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="orderDetailModalLabel">Order Details</h5>
