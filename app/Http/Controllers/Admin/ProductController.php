@@ -33,15 +33,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('gambar')->store('public/images/product');
-        $filePaths = $path;
+        $filePaths = $request->file('gambar')->store('public/images/product');
 
         Produk::create([
             'nama' => $request->nama,
             'kategori_id' => $request->kategori_id,
             'stok' => $request->stok,
             'harga' => $request->harga,
-            'gambar' => json_encode($filePaths),
+            'gambar' => $filePaths,
         ]);
 
         return redirect()->route('product-table')->with('success', 'Product Successfully Added');
